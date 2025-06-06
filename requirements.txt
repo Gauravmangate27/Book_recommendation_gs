@@ -2,5 +2,4 @@ flask
 numpy
 pandas
 gunicorn
-python_version ==3.11.11
 scikit-learn
