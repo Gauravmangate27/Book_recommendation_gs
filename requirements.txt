@@ -2,3 +2,5 @@ flask
 numpy
 pandas
 gunicorn
+python_version >= 3.10
+scikit-learn
