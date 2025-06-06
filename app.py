@@ -27,9 +27,9 @@ def recommend_ui():
 def recommend():
     user_input = request.form.get('user_input')
     matches = np.where(pt.index == user_input)[0]
-    if len(matches) == 0:
-        # Book not found, show a message
-        return render_template('recommend.html', data=[], message="Book not found. Please try another title.")
+    # if len(matches) == 0:
+    #     # Book not found, show a message
+    #     return render_template('recommend.html', data=[], message="Book not found. Please try another title.")
     index = matches[0]
     similar_items = sorted(list(enumerate(similarity_scores[index])), key=lambda x: x[1], reverse=True)[1:5]
 
