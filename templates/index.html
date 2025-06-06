@@ -4,28 +4,95 @@
     <meta charset="UTF-8">
     <title>Book Recommender System</title>
     <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        body {
+            background: linear-gradient(135deg, #232526 0%, #414345 100%);
+            min-height: 100vh;
+        }
+        .navbar {
+            border-radius: 0;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .navbar-brand {
+            font-size: 2em;
+            color: #fff !important;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .nav > li > a {
+            color: #fff !important;
+            font-size: 1.1em;
+        }
+        .nav > li > a:hover {
+            background: #007d4a !important;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        h1.text-white {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #fff;
+            text-shadow: 1px 2px 8px #222;
+        }
+        .card {
+            background: #232526;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+            margin-bottom: 30px;
+            padding: 18px 10px 10px 10px;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card-img-top {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
+        .text-white {
+            color: #fff !important;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        h4.text-white {
+            color: #ffd200 !important;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        @media (max-width: 767px) {
+            .card-img-top {
+                height: 160px;
+            }
+            .col-md-3 {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
 </head>
-<style>
-    .text-white{
-        color:white
-    }
-</style>
-<body style="background-color:black">
+<body>
 
     <nav class="navbar" style="background-color:#00a65a">
         <a class="navbar-brand">My Book recommender</a>
         <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
             <li><a href="/recommend">Recommend</a></li>
-            <li><a>Contact</a></li>
+            <!-- <li><a>Contact</a></li> -->
         </ul>
     </nav>
 
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-white" style="font-size:50px">Top 50 Books</h1>
+                <h1 class="text-white">Top 50 Books</h1>
             </div>
 
             {% for i in range(book_name|length) %}
@@ -41,7 +108,6 @@
                     </div>
                 </div>
             {% endfor %}
-
 
         </div>
     </div>
