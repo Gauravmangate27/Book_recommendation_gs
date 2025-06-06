@@ -19,30 +19,30 @@ def index():
                            rating=list(popular_df['avg_rating'].values)
                            )
 
-@app.route('/recommend')
-def recommend_ui():
-    return render_template('recommend.html')
+# @app.route('/recommend')
+# def recommend_ui():
+#     return render_template('recommend.html')
 
-@app.route('/recommend_books', methods=['post'])
-def recommend():
-    user_input = request.form.get('user_input')
-    matches = np.where(pt.index == user_input)[0]
-    if len(matches) == 0:
-        # Book not found, show a message
-        return render_template('recommend.html', data=[], message="Book not found. Please try another title.")
-    index = matches[0]
-    similar_items = sorted(list(enumerate(similarity_scores[index])), key=lambda x: x[1], reverse=True)[1:5]
+# @app.route('/recommend_books', methods=['post'])
+# def recommend():
+#     user_input = request.form.get('user_input')
+#     matches = np.where(pt.index == user_input)[0]
+#     if len(matches) == 0:
+#         # Book not found, show a message
+#         return render_template('recommend.html', data=[], message="Book not found. Please try another title.")
+#     index = matches[0]
+#     similar_items = sorted(list(enumerate(similarity_scores[index])), key=lambda x: x[1], reverse=True)[1:5]
 
-    data = []
-    for i in similar_items:
-        item = []
-        temp_df = books[books['Book-Title'] == pt.index[i[0]]]
-        item.extend(list(temp_df.drop_duplicates('Book-Title')['Book-Title'].values))
-        item.extend(list(temp_df.drop_duplicates('Book-Title')['Book-Author'].values))
-        item.extend(list(temp_df.drop_duplicates('Book-Title')['Image-URL-M'].values))
-        data.append(item)
+#     data = []
+#     for i in similar_items:
+#         item = []
+#         temp_df = books[books['Book-Title'] == pt.index[i[0]]]
+#         item.extend(list(temp_df.drop_duplicates('Book-Title')['Book-Title'].values))
+#         item.extend(list(temp_df.drop_duplicates('Book-Title')['Book-Author'].values))
+#         item.extend(list(temp_df.drop_duplicates('Book-Title')['Image-URL-M'].values))
+#         data.append(item)
 
-    return render_template('recommend.html', data=data, message=None)
+#     return render_template('recommend.html', data=data, message=None)
 
 if __name__ == '__main__':
     app.run(debug=True)
